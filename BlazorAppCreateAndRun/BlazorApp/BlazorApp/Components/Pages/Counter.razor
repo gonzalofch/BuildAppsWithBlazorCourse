@@ -1,0 +1,64 @@
+﻿@page "/counter"
+@rendermode InteractiveServer
+@* Tambien se puede declarar esta opcion en donde se llama a el componente <Counter />  <Counter @rendermode="InteractiveServer" /> *@
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @(currentCount)</p>
+
+<button class="btn btn-primary" @onclick="() => currentCount++">Click me</button>
+
+<input onchange="InputChanged" />
+
+<p>Your Message Is: @(message)</p>
+
+<input @bind="text" />
+<button @onclick="() => text = string.Empty">Clear</button>
+<p>@text</p>
+
+@code {
+    string text = "";
+}
+
+@* <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+ *@
+
+
+@if (currentCount > 3)
+{
+    <ul>
+        @foreach (var item in numberList)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+
+
+@code {
+    string message = "";
+
+    void InputChanged(ChangeEventArgs e)
+    {
+        message = (string)e.Value;
+    }
+}
+@code {
+    private int currentCount = 0;
+
+    private List<int> numberList = new List<int>()
+    {
+        1,2,3,4,5,6,7,8,9
+    };
+
+    [Parameter]
+    public int IncrementAmount { get; set; } = 1;
+
+    private void IncrementCount()
+    {
+        currentCount += IncrementAmount;
+
+    }
+}

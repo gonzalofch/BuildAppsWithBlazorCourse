@@ -1,0 +1,16 @@
+﻿@* @page "/specialoffers"
+
+<h1>SpecialOffers</h1>
+
+<h2>Deal: @DealName</h2>
+
+<CascadingValue Name="DealName" Value="Throwback Thursday">
+    <!-- Any descendant component rendered here will be able to access the cascading value. -->
+
+</CascadingValue>
+
+@code {
+
+    [CascadingParameter(Name = "DealName")]
+    private string DealName { get; set; }
+} *@

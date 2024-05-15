@@ -1,0 +1,29 @@
+﻿@page "/pizzas-toppings"
+@layout MainLayout
+
+<PageTitle>Toppings</PageTitle>
+
+<Pizza PizzaName="Hawaiian" PizzaDescription="The one with pineapple" />
+
+@* <PizzaTopping Topping="@(new PizzaTopping() { Name = "Chilli Sauce", Ingredients = "Three kinds of chilli." })" /> *@
+
+<h2>New Pizza: @PizzaName</h2>
+
+<p>@PizzaDescription</p>
+
+@code {
+    [Parameter]
+    public string PizzaName { get; set; }
+
+    [Parameter]
+    public string PizzaDescription { get; set; } = "The best pizza you've ever tasted.";
+}
+@* 
+<h2>New Topping: @Topping.Name</h2>
+
+<p>Ingredients: @Topping.Ingredients</p>
+ *@
+@code {
+    [Parameter]
+    public PizzaTopping Topping { get; set; }
+}

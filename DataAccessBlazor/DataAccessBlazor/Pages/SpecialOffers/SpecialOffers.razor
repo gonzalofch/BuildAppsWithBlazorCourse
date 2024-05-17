@@ -1,0 +1,14 @@
+﻿@page "/specialoffers"
+
+<h1>SpecialOffers</h1>
+
+<h2>Deal: @DealName</h2>
+
+<CascadingValue Name="DealName" Value="@DealName">
+    <Component1 />
+</CascadingValue>
+
+@code {
+    [CascadingParameter(Name = "DealName")]
+    private string DealName { get; set; } = "Throwback Thursday";
+}

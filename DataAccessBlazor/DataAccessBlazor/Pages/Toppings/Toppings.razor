@@ -3,25 +3,43 @@
 
 <PageTitle>Toppings</PageTitle>
 
+<h2>New Pizza: @PizzaName</h2>
+
+<p>@PizzaDescription</p>
 <Pizza PizzaName="Hawaiian" PizzaDescription="The one with pineapple" />
 
 @* <PizzaTopping Topping="@(new PizzaTopping() { Name = "Chilli Sauce", Ingredients = "Three kinds of chilli." })" /> *@
 
-<h2>New Pizza: @PizzaName</h2>
 
-<p>@PizzaDescription</p>
+@* @code {
+    // Definir las variables para PizzaName y PizzaDescription
+    string PizzaName { get; set; } = "";
+    string PizzaDescription { get; set; } = "";
+
+    // Método OnInitializedAsync para asignar valores a las variables
+    protected override Task OnInitializedAsync()
+    {
+        // Asignar valores a PizzaName y PizzaDescription
+        PizzaName = "Hawaiian";
+        PizzaDescription = "The one with pineapple";
+
+        return base.OnInitializedAsync();
+    }
+} *@
 
 @code {
     [Parameter]
-    public string PizzaName { get; set; }
+    public string PizzaName { get; set; } 
 
     [Parameter]
     public string PizzaDescription { get; set; } = "The best pizza you've ever tasted.";
 }
 @* 
+
 <h2>New Topping: @Topping.Name</h2>
 
 <p>Ingredients: @Topping.Ingredients</p>
+
  *@
 @code {
     [Parameter]

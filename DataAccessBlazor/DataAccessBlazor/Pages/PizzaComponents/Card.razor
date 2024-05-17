@@ -1,0 +1,31 @@
+﻿@using DataAccessBlazor.Services
+@inject OrderState OrderState
+
+<li @onclick="@(() => OrderState.ShowConfigurePizzaDialog(pizza))" style="background-image: url('@pizza.ImageUrl')">
+    <div class="pizza-info" @onclick="IncrementSales">
+        <span class="title">@pizza.Name</span>
+        @state.PizzasSoldToday
+        <span class="price">@pizza.GetFormattedBasePrice()</span>
+    </div>
+</li>
+@if (OrderState.ShowingConfigureDialog)
+{
+    <ConfigurePizzaDialog Pizza="OrderState.ConfiguringPizza"
+                          OnCancel="OrderState.CancelConfigurePizzaDialog"
+                          OnConfirm="OrderState.ConfirmConfigurePizzaDialog" />
+}
+
+@code {
+
+    [Parameter]
+    public PizzaSpecial pizza { get; set; } = new();
+
+    private PizzaSalesState state { get; set; } = new();
+
+    private void IncrementSales()
+    {
+        state.PizzasSoldToday++;
+        pizza.BasePrice++;
+        StateHasChanged();
+    }
+}

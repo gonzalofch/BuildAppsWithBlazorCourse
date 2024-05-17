@@ -1,22 +1,28 @@
 @using DataAccessBlazor;
+@using DataAccessBlazor.Pages.PizzaComponents;
+
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
+@inject PizzaSalesState SalesState
 @page "/"
+
 
 <div class="main">
     <h1>Blazing Pizzas</h1>
+
+    <p>PIzzasSalesStateExample:</p>
+
+    @* <p>Today, we've sold this many pizzas: @SalesState.PizzasSoldToday</p> *@
+
+    @* <button @onclick="IncrementSales">Buy a Pizza</button> *@
+
+
     <ul class="pizza-cards">
         @if (specials != null)
         {
-            @foreach (var pizza in specials)
+            @foreach (var special in specials)
             {
-                <li style="background-image: url('@pizza.ImageUrl')">
-                    <div class="pizza-info">
-                        <span class="title">@pizza.Name</span>
-                        @pizza.Description
-                        <span class="price">@pizza.GetFormattedBasePrice()</span>
-                    </div>
-                </li>
+                <Card pizza="@special" />
             }
         }
     </ul>
@@ -24,10 +30,18 @@
 
 @code {
     List<PizzaSpecial> specials = new();
-
+    
     protected override async Task OnInitializedAsync()
     {
         specials = await HttpClient.GetFromJsonAsync<List<PizzaSpecial>>(NavigationManager.BaseUri + "specials");
     }
 
+    // private void IncrementSales()
+    // {
+    //     SalesState.PizzasSoldToday++;
+    // }
 }
+
+
+
+

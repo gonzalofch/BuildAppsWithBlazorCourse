@@ -1,0 +1,25 @@
+﻿@page "/emailbind"
+@* @layout MainLayout
+
+<PageTitle>EmailBindExample</PageTitle>
+
+<p>
+    Your email address is:
+    <input @bind="customerEmail" />
+</p>
+
+@code {
+    private string customerEmail = "john.doe@contoso.com";
+} *@
+
+<!--esto es como un onchange-->
+<h1>My favorite pizza is: @favPizza</h1>
+
+<p>
+    Enter your favorite pizza:
+    <input @bind="favPizza" />
+</p>
+
+@code {
+    private string favPizza { get; set; } = "Margherita";
+}

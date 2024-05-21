@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 
 namespace DataAccessBlazor
@@ -9,6 +10,8 @@ namespace DataAccessBlazor
         public readonly static TimeSpan DeliveryDuration = TimeSpan.FromMinutes(1); // Unrealistic, but more interesting to watch
 
         public Order Order { get; set; }
+
+        public int Id { get; set; }
 
         public string StatusText { get; set; }
 

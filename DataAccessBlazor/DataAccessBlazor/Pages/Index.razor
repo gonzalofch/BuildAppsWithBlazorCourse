@@ -10,14 +10,6 @@
 
 
 <div class="main">
-    <h1>Blazing Pizzas</h1>
-
-    <p>PIzzasSalesStateExample:</p>
-
-    @* <p>Today, we've sold this many pizzas: @SalesState.PizzasSoldToday</p> *@
-
-    @* <button @onclick="IncrementSales">Buy a Pizza</button> *@
-
 
     <ul class="pizza-cards">
         @if (specials != null)
@@ -25,18 +17,18 @@
             @foreach (var special in specials)
             {
                 <li @onclick="@(() => OrderState.ShowConfigurePizzaDialog(special))" style="background-image: url('@special.ImageUrl')">
-                    <div class="pizza-info" @onclick="IncrementSales">
+                    <div class="pizza-info">
                         <span class="title">@special.Name</span>
-                        @state.PizzasSoldToday
+                        @special.Description
                         <span class="price">@special.GetFormattedBasePrice()</span>
                     </div>
                 </li>
-                @if (OrderState.ShowingConfigureDialog)
-                {
-                    <ConfigurePizzaDialog Pizza="OrderState.ConfiguringPizza"
-                                          OnCancel="OrderState.CancelConfigurePizzaDialog"
-                                          OnConfirm="OrderState.ConfirmConfigurePizzaDialog" />
-                }
+            }
+            @if (OrderState.ShowingConfigureDialog)
+            {
+                <ConfigurePizzaDialog Pizza="OrderState.ConfiguringPizza"
+                                      OnCancel="OrderState.CancelConfigurePizzaDialog"
+                                      OnConfirm="OrderState.ConfirmConfigurePizzaDialog" />
             }
         }
     </ul>
@@ -75,7 +67,12 @@
 </div>
 
 @code {
+
+    [Parameter, EditorRequired] public Pizza Pizza { get; set; } = new();
+
     List<PizzaSpecial> specials = new();
+    Pizza? configuringPizza;
+
     public OrderState orderState { get; set; }
     Order order => OrderState.Order;
 

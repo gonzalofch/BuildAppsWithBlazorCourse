@@ -18,6 +18,7 @@
             };
 
             ShowingConfigureDialog = true;
+            Console.WriteLine(special.Name);
         }
 
         public void CancelConfigurePizzaDialog()

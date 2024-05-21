@@ -24,14 +24,22 @@ namespace DataAccessBlazor
 
         public List<PizzaTopping> Toppings { get; set; }
 
+        public string GetToppingsText()
+        {
+            return String.Join(", ", Toppings.Select(t => t.Topping));
+        }
         public decimal GetBasePrice()
         {
+            if (Special == null)
+                throw new NullReferenceException($"{nameof(Special)} was null when calculating Base Price.");
             return ((decimal)Size / (decimal)DefaultSize) * Special.BasePrice;
         }
 
         public decimal GetTotalPrice()
         {
-            return GetBasePrice();
+            if (Toppings.Any(t => t.Topping is null))
+                throw new NullReferenceException($"{nameof(Toppings)} contained null when calculating the Total Price.");
+            return GetBasePrice() + Toppings.Sum(t => t.Topping!.Price);
         }
 
         public string GetFormattedTotalPrice()

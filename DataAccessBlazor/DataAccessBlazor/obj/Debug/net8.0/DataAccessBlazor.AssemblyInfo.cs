@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DataAccessBlazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2449aaf4ff6a99edc09b1266d3aedd543782c38")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86661b8e2174df0d6ea62f50f620274d1cea4b0e")]
 [assembly: System.Reflection.AssemblyProductAttribute("DataAccessBlazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DataAccessBlazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

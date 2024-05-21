@@ -1,7 +1,6 @@
 using DataAccessBlazor.Data;
 using DataAccessBlazor.Pages;
 using DataAccessBlazor.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();

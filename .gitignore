@@ -387,15 +387,15 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 
+*.cache
+*.dll
+*.exe
+*.pdb
 /build/
 *.suo
 *.user
 _ReSharper.*/
 *.sdf
-bin/
-obj/
-Debug/
-Release/
 *.opensdf
 *.tlog
 *.log
@@ -404,5 +404,3 @@ TestResult.xml
 Version.cs
 Version.h
 Version.cpp
-*/bin/*
-*/obj/*

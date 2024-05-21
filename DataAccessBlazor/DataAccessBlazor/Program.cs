@@ -9,6 +9,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddSqlite<PizzaStoreContext>("Data Source=pizza.db");
 builder.Services.AddScoped<PizzaSalesState>();
 builder.Services.AddScoped<OrderState>();
+builder.Services.AddScoped<OrderService>();
 
 var app = builder.Build();
 

@@ -1,11 +1,15 @@
 @using DataAccessBlazor;
 @using DataAccessBlazor.Pages.PizzaComponents;
 @using DataAccessBlazor.Services;
+@using Newtonsoft.Json
+@using System.Text
 
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
 @inject PizzaSalesState SalesState
 @inject OrderState OrderState
+@inject OrderService OrderService
+
 @page "/"
 
 
@@ -37,6 +41,7 @@
 <div class="sidebar">
     @if (order.Pizzas.Any())
     {
+        Console.WriteLine(order);
         <div class="order-contents">
             <h2>Your order</h2>
 
@@ -44,6 +49,17 @@
             {
                 <div class="cart-item">
                     <div class="title">@(configuredPizza.Size)" @configuredPizza.Special.Name</div>
+                    <ul>
+                        <li>@configuredPizza.Id</li>
+                        <li>@configuredPizza.OrderId</li>
+                        <li>@configuredPizza.SpecialId</li>
+                        <li>@configuredPizza.Toppings.Count</li>
+                        @foreach (var topping in configuredPizza.Toppings)
+                        {
+                            <li>+ @topping.Topping?.Name</li>
+
+                        }
+                    </ul>
                     <div class="item-price">
                         @configuredPizza.GetFormattedTotalPrice()
                     </div>
@@ -60,13 +76,16 @@
     <div class="order-total @(order.Pizzas.Any() ? "" : "hidden")">
         Total:
         <span class="total-price">@order.GetFormattedTotalPrice()</span>
-        <a href="checkout" class="@(OrderState.Order.Pizzas.Count == 0 ? "btn btn-warning disabled" : "btn btn-warning")">
+        <button class="btn btn-warning" disabled="@(order.Pizzas.Count == 0)" @onclick="CreateOrder">
             Order >
-        </a>
+        </button>
     </div>
 </div>
 
 @code {
+
+
+
 
     [Parameter, EditorRequired] public Pizza Pizza { get; set; } = new();
 
@@ -79,6 +98,20 @@
     protected override async Task OnInitializedAsync()
     {
         specials = await HttpClient.GetFromJsonAsync<List<PizzaSpecial>>(NavigationManager.BaseUri + "specials");
+    }
+
+    private async Task CreateOrder()
+    {
+        try
+        {
+            var createdOrder = await OrderService.PostOrder(OrderState);
+            // Manejar la respuesta, por ejemplo, navegar a una página de confirmación
+        }
+        catch (Exception ex)
+        {
+            // Manejo de errores
+            Console.WriteLine("Error al crear la orden: " + ex.Message);
+        }
     }
 
     private PizzaSalesState state { get; set; } = new();

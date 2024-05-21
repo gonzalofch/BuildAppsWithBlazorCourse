@@ -3,6 +3,7 @@ using System;
 using DataAccessBlazor.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessBlazor.Migrations
 {
     [DbContext(typeof(PizzaStoreContext))]
-    partial class PizzaStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20240521132525_EditOrder")]
+    partial class EditOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.5");
@@ -49,7 +52,24 @@ namespace DataAccessBlazor.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Address");
+                    b.ToTable("Addresses");
+                });
+
+            modelBuilder.Entity("DataAccessBlazor.LatLong", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LatLong");
                 });
 
             modelBuilder.Entity("DataAccessBlazor.Order", b =>
@@ -64,6 +84,9 @@ namespace DataAccessBlazor.Migrations
                     b.Property<int>("DeliveryAddressId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("DeliveryLocationId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -72,7 +95,29 @@ namespace DataAccessBlazor.Migrations
 
                     b.HasIndex("DeliveryAddressId");
 
+                    b.HasIndex("DeliveryLocationId");
+
                     b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("DataAccessBlazor.OrderWithStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("StatusText")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrdersWithStatus");
                 });
 
             modelBuilder.Entity("DataAccessBlazor.Pizza", b =>
@@ -127,17 +172,23 @@ namespace DataAccessBlazor.Migrations
 
             modelBuilder.Entity("DataAccessBlazor.PizzaTopping", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("PizzaId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ToppingId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("PizzaId", "ToppingId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("PizzaId");
 
                     b.HasIndex("ToppingId");
 
-                    b.ToTable("PizzaTopping");
+                    b.ToTable("PizzaToppings");
                 });
 
             modelBuilder.Entity("DataAccessBlazor.Topping", b =>
@@ -158,6 +209,24 @@ namespace DataAccessBlazor.Migrations
                     b.ToTable("Toppings");
                 });
 
+            modelBuilder.Entity("DataAccessBlazor.UserInfo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsAuthenticated")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("DataAccessBlazor.Order", b =>
                 {
                     b.HasOne("DataAccessBlazor.Address", "DeliveryAddress")
@@ -166,31 +235,24 @@ namespace DataAccessBlazor.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.OwnsOne("DataAccessBlazor.LatLong", "DeliveryLocation", b1 =>
-                        {
-                            b1.Property<int>("OrderId")
-                                .HasColumnType("INTEGER");
-
-                            b1.Property<int>("Id")
-                                .HasColumnType("INTEGER");
-
-                            b1.Property<double>("Latitude")
-                                .HasColumnType("REAL");
-
-                            b1.Property<double>("Longitude")
-                                .HasColumnType("REAL");
-
-                            b1.HasKey("OrderId");
-
-                            b1.ToTable("Orders");
-
-                            b1.WithOwner()
-                                .HasForeignKey("OrderId");
-                        });
+                    b.HasOne("DataAccessBlazor.LatLong", "DeliveryLocation")
+                        .WithMany()
+                        .HasForeignKey("DeliveryLocationId");
 
                     b.Navigation("DeliveryAddress");
 
                     b.Navigation("DeliveryLocation");
+                });
+
+            modelBuilder.Entity("DataAccessBlazor.OrderWithStatus", b =>
+                {
+                    b.HasOne("DataAccessBlazor.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("DataAccessBlazor.Pizza", b =>

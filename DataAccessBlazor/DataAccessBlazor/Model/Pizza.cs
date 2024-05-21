@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace DataAccessBlazor
@@ -13,6 +14,8 @@ namespace DataAccessBlazor
         public const int MaximumSize = 17;
 
         public int Id { get; set; }
+
+        [ForeignKey("Order")]
 
         public int OrderId { get; set; }
 

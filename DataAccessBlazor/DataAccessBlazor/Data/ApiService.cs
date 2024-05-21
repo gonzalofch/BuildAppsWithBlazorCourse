@@ -14,7 +14,7 @@ public class ApiService
 
     public async Task<List<MenuItem>> GetMenuItemsAsync()
     {
-        return await _httpClient.GetFromJsonAsync<List<MenuItem>>("restaurants/1/");//menu?category=Pizza
+        return await _httpClient.GetFromJsonAsync<List<MenuItem>>("");//menu?category=Pizza
     }
 
     public async Task<T> GetAsync<T>(string url)

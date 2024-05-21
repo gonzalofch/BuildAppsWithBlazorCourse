@@ -3,39 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\pages\\_host.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\pages\\_host.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\pages\\bindexamples\\pizzaapproval.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\pages\\bindexamples\\pizzaapproval.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\pages\\toppings\\toppings.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\pages\\toppings\\toppings.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\pages\\toppings.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\pages\\toppings.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\pages\\bindexamples\\ukbirthdaypizza.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\pages\\bindexamples\\ukbirthdaypizza.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\pages\\toppings\\toppings.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\pages\\toppings\\toppings.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\pages\\bindexamples\\emailbindexample.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\pages\\bindexamples\\emailbindexample.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\BlazingPizza\\BlazingPizza\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\services\\orderstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\services\\orderstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|c:\\users\\gonzalofc\\buildappswithblazorcourse\\dataaccessblazor\\dataaccessblazor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E667A8A8-97BF-4E2C-AE48-9DD716E91A4E}|DataAccessBlazor\\DataAccessBlazor.csproj|solutionrelative:dataaccessblazor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,121 +37,81 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Imports.razor",
-              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\_Imports.razor",
-              "RelativeDocumentMoniker": "DataAccessBlazor\\_Imports.razor",
-              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\_Imports.razor",
-              "RelativeToolTip": "DataAccessBlazor\\_Imports.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-15T14:24:20.943Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "package-lock.json",
-              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\package-lock.json",
-              "RelativeDocumentMoniker": "DataAccessBlazor\\package-lock.json",
-              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\package-lock.json",
-              "RelativeToolTip": "DataAccessBlazor\\package-lock.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-15T14:24:17.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Host.cshtml",
-              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\_Host.cshtml",
-              "RelativeDocumentMoniker": "DataAccessBlazor\\Pages\\_Host.cshtml",
-              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\_Host.cshtml",
-              "RelativeToolTip": "DataAccessBlazor\\Pages\\_Host.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-15T14:23:54.351Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Shared\\MainLayout.razor",
-              "RelativeDocumentMoniker": "DataAccessBlazor\\Shared\\MainLayout.razor",
-              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Shared\\MainLayout.razor",
-              "RelativeToolTip": "DataAccessBlazor\\Shared\\MainLayout.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-15T14:23:48.713Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "DataAccessBlazor\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "DataAccessBlazor\\wwwroot\\css\\site.css",
-              "ViewState": "AQIAADQCAAAAAAAAAAAAAE8CAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-05-15T14:23:23.938Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Toppings.razor",
               "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\Toppings\\Toppings.razor",
               "RelativeDocumentMoniker": "DataAccessBlazor\\Pages\\Toppings\\Toppings.razor",
               "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\Toppings\\Toppings.razor",
               "RelativeToolTip": "DataAccessBlazor\\Pages\\Toppings\\Toppings.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABCAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-15T14:03:23.642Z",
+              "WhenOpened": "2024-05-21T06:24:25.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PizzaApproval.razor",
+              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\BindExamples\\PizzaApproval.razor",
+              "RelativeDocumentMoniker": "DataAccessBlazor\\Pages\\BindExamples\\PizzaApproval.razor",
+              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\BindExamples\\PizzaApproval.razor",
+              "RelativeToolTip": "DataAccessBlazor\\Pages\\BindExamples\\PizzaApproval.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T06:22:07.043Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Toppings.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\Toppings.cshtml.cs",
-              "RelativeDocumentMoniker": "DataAccessBlazor\\Pages\\Toppings.cshtml.cs",
-              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\Toppings.cshtml.cs",
-              "RelativeToolTip": "DataAccessBlazor\\Pages\\Toppings.cshtml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T14:08:02.852Z",
-              "EditorCaption": ""
+              "DocumentIndex": 2,
+              "Title": "UkBirthDayPizza.razor",
+              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\BindExamples\\UkBirthDayPizza.razor",
+              "RelativeDocumentMoniker": "DataAccessBlazor\\Pages\\BindExamples\\UkBirthDayPizza.razor",
+              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\BindExamples\\UkBirthDayPizza.razor",
+              "RelativeToolTip": "DataAccessBlazor\\Pages\\BindExamples\\UkBirthDayPizza.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T06:13:36.535Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Toppings.razor.cs",
-              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\Toppings\\Toppings.razor.cs",
-              "RelativeDocumentMoniker": "DataAccessBlazor\\Pages\\Toppings\\Toppings.razor.cs",
-              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\Toppings\\Toppings.razor.cs",
-              "RelativeToolTip": "DataAccessBlazor\\Pages\\Toppings\\Toppings.razor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T14:07:32.174Z",
-              "EditorCaption": ""
+              "DocumentIndex": 3,
+              "Title": "EmailBindExample.razor",
+              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\BindExamples\\EmailBindExample.razor",
+              "RelativeDocumentMoniker": "DataAccessBlazor\\Pages\\BindExamples\\EmailBindExample.razor",
+              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Pages\\BindExamples\\EmailBindExample.razor",
+              "RelativeToolTip": "DataAccessBlazor\\Pages\\BindExamples\\EmailBindExample.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-17T11:46:01.77Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\BlazingPizza\\BlazingPizza\\Program.cs",
-              "RelativeDocumentMoniker": "..\\BlazingPizza\\BlazingPizza\\Program.cs",
-              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\BlazingPizza\\BlazingPizza\\Program.cs",
-              "RelativeToolTip": "..\\BlazingPizza\\BlazingPizza\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAmAAAA",
+              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Program.cs",
+              "RelativeDocumentMoniker": "DataAccessBlazor\\Program.cs",
+              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Program.cs",
+              "RelativeToolTip": "DataAccessBlazor\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T14:00:39.394Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-17T11:24:28.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderState.cs",
+              "DocumentMoniker": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Services\\OrderState.cs",
+              "RelativeDocumentMoniker": "DataAccessBlazor\\Services\\OrderState.cs",
+              "ToolTip": "C:\\Users\\gonzalofc\\BuildAppsWithBlazorCourse\\DataAccessBlazor\\DataAccessBlazor\\Services\\OrderState.cs",
+              "RelativeToolTip": "DataAccessBlazor\\Services\\OrderState.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAwwBYAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T11:21:53.795Z"
             }
           ]
         }

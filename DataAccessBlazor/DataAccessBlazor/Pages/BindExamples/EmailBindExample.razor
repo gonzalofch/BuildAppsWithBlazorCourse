@@ -12,12 +12,13 @@
     private string customerEmail = "john.doe@contoso.com";
 } *@
 
-<!--esto es como un onchange-->
+<!--Bind elements to events-->
 <h1>My favorite pizza is: @favPizza</h1>
 
 <p>
     Enter your favorite pizza:
-    <input @bind="favPizza" />
+    <input @bind="favPizza"  @bind:event="oninput" /> <!--oninput-->
+    <input @bind="favPizza"/><!--onchange default-->
 </p>
 
 @code {

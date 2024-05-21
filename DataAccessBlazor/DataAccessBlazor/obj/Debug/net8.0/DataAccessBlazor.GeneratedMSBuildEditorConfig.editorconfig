@@ -26,6 +26,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = RGF0YVxGZXRjaERhdGEucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/gonzalofc/BuildAppsWithBlazorCourse/DataAccessBlazor/DataAccessBlazor/Pages/BindExamples/EmailBindExample.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmluZEV4YW1wbGVzXEVtYWlsQmluZEV4YW1wbGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonzalofc/BuildAppsWithBlazorCourse/DataAccessBlazor/DataAccessBlazor/Pages/BindExamples/PizzaApproval.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmluZEV4YW1wbGVzXFBpenphQXBwcm92YWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonzalofc/BuildAppsWithBlazorCourse/DataAccessBlazor/DataAccessBlazor/Pages/BindExamples/UkBirthDayPizza.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmluZEV4YW1wbGVzXFVrQmlydGhEYXlQaXp6YS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/gonzalofc/BuildAppsWithBlazorCourse/DataAccessBlazor/DataAccessBlazor/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

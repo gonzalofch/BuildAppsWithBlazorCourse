@@ -1,0 +1,28 @@
+﻿@page "/another-page"
+@page "/buypizza"
+@inject NavigationManager navMan
+@if (page == "another-page")
+{
+    <li>You are in another page</li>
+}else{
+    <li>You are in Payment Page </li>
+}
+
+@code {
+    private string page;
+    
+    protected override void OnInitialized()
+    {
+        page=CheckCurrentPage();
+    }
+
+    private string CheckCurrentPage()
+    {
+        // Obtiene la URI actual
+
+        // Verifica si la URI actual termina con las rutas específicas
+        return navMan.ToBaseRelativePath(navMan.Uri).Equals("another-page", StringComparison.OrdinalIgnoreCase)
+        ? "another-page"
+        : "buypizza";
+    }
+}

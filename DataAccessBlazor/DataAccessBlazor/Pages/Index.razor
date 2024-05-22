@@ -2,6 +2,8 @@
 @using DataAccessBlazor.Pages.PizzaComponents;
 @using DataAccessBlazor.Services;
 @using System.Text
+@using Microsoft.AspNetCore.WebUtilities
+
 
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
@@ -9,11 +11,27 @@
 @inject OrderState OrderState
 
 @page "/"
+@page "/pizzas"
+@*Pruebas de Navigation Manager con lo que devuelven*@
+<p>I want to order a: @PizzaName</p>
 
-@* If you want to specify more than one route to the component, use two or more @page directives
-    @page "/Pizzas"
-    @page "/CustomPizzas"
-*@
+<p>I want to add this topping: @ToppingName</p>
+
+<ul>
+    <li>@(currentUri)</li>
+    <li>@(baseUri)</li>
+    <li>@(absoluteUri)</li>
+    <li>@(relativePath)</li>
+    <button class="btn" @onclick="Navigate">
+        To Another Page >
+    </button>
+
+    <button class="btn" @onclick="NavigateToPaymentPage">
+        To Payment Page >
+    </button>
+</ul>
+@* <a href="@HomePageURI">HomePageLink</a> *@
+
 <div class="main">
 
     <ul class="pizza-cards">
@@ -84,10 +102,7 @@
 </div>
 
 @code {
-
-
-
-
+   
     [Parameter, EditorRequired] public Pizza Pizza { get; set; } = new();
 
     List<PizzaSpecial> specials = new();
@@ -96,8 +111,51 @@
     public OrderState orderState { get; set; }
     Order order => OrderState.Order;
 
+    /*
+     * With NavigationManager we can obtain all these values
+     * The current full URI, such as http://www.blablablazor.com/pizzas/margherita?extratopping=pineapple.
+     *     The base URI, such as http://www.blablablazor.com/.
+     *     The base relative path, such as pizzas/margherita.
+     *     The query string, such as ?extratopping=pineapple.
+     */
+
+    private string currentUri;
+    private string baseUri;
+    private string absoluteUri;
+    private string relativePath;
+
+    
+    private void Navigate()
+    {
+        NavigationManager.NavigateTo("/another-page");
+    }
+
+    private void NavigateToPaymentPage()
+    {
+        NavigationManager.NavigateTo("buypizza");
+    }
+
+    [Parameter]
+    public string PizzaName { get; set; }
+    private string ToppingName { get; set; }
+    public string HomePageURI { get; set; }
+
+    protected override void OnInitialized()
+    {
+        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("extratopping", out var extraTopping))
+        {
+            ToppingName = System.Convert.ToString(extraTopping);
+        }
+    }
+
     protected override async Task OnInitializedAsync()
     {
+        currentUri = NavigationManager.Uri;
+        baseUri = NavigationManager.BaseUri;
+        absoluteUri = NavigationManager.ToAbsoluteUri("/another-page").ToString();
+        relativePath = NavigationManager.ToBaseRelativePath("https://localhost:7056/another-page");
+
         specials = await HttpClient.GetFromJsonAsync<List<PizzaSpecial>>(NavigationManager.BaseUri + "specials");
     }
 

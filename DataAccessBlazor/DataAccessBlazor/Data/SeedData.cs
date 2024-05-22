@@ -178,7 +178,7 @@ public static class SeedData
         };
         db.Toppings.AddRange(toppings);
         //db.Specials.AddRange(specials);
-        db.SaveChanges();
+        db.Toppings.SaveChanges();
     }
 }
 

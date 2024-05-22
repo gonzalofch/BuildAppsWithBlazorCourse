@@ -1,5 +1,6 @@
 ﻿@page "/checkout";
-@using Services;
+@using DataAccessBlazor;
+
 @inject OrderState OrderState
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
@@ -40,7 +41,7 @@
         </div>
     </div>
 
-    <button class="checkout-button btn btn-warning" @onclick="PlaceOrder" disabled=@isSubmitting>
+    <button class="checkout-button btn btn-warning" @onclick="SendOrder" disabled=@isSubmitting>
         Place order
     </button>
 </div>
@@ -50,10 +51,11 @@
 
     bool isSubmitting;
 
-    async Task PlaceOrder()
+    async Task SendOrder()
     {
         isSubmitting = true;
-        var response = await HttpClient.PostAsJsonAsync(NavigationManager.BaseUri + "orders", OrderState.Order);
+        var response = await HttpClient.PostAsJsonAsync($"{NavigationManager.BaseUri}orders", OrderState.Order);
+
         var newOrderId = await response.Content.ReadFromJsonAsync<int>();
         OrderState.ResetOrder();
         NavigationManager.NavigateTo("/");

@@ -1,6 +1,6 @@
 using DataAccessBlazor.Data;
 using DataAccessBlazor.Pages;
-using DataAccessBlazor.Services;
+using DataAccessBlazor;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
@@ -15,6 +15,7 @@ var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
 using (var scope = scopeFactory.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<PizzaStoreContext>();
+
     if (db.Database.EnsureCreated())
     {
         SeedData.Initialize(db);

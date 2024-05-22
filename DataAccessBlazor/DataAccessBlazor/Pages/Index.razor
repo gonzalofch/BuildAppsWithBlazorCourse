@@ -1,9 +1,8 @@
 @using DataAccessBlazor;
 @using DataAccessBlazor.Pages.PizzaComponents;
-@using DataAccessBlazor.Services;
+@using DataAccessBlazor;
 @using System.Text
 @using Microsoft.AspNetCore.WebUtilities
-
 
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
@@ -91,11 +90,11 @@
                 <li>@configuredPizza.OrderId</li>
                 <li>@configuredPizza.SpecialId</li>
                 <li>@configuredPizza.Toppings.Count</li> *@
-                        @foreach (var topping in configuredPizza.Toppings)
+                       @*  @foreach (var topping in configuredPizza.Toppings)
                         {
                             <li>+ @topping.Topping?.Name</li>
 
-                        }
+                        } *@
                     </ul>
                     <div class="item-price">
                         @configuredPizza.GetFormattedTotalPrice()
@@ -121,12 +120,8 @@
 
 @code {
 
-    [Parameter, EditorRequired] public Pizza Pizza { get; set; } = new();
-
     List<PizzaSpecial> specials = new();
-    Pizza? configuringPizza;
 
-    public OrderState orderState { get; set; }
     Order order => OrderState.Order;
 
     /*
@@ -136,11 +131,6 @@
      *     The base relative path, such as pizzas/margherita.
      *     The query string, such as ?extratopping=pineapple.
      */
-
-    private string currentUri;
-    private string baseUri;
-    private string absoluteUri;
-    private string relativePath;
 
 
     private void Navigate()
@@ -153,29 +143,9 @@
         NavigationManager.NavigateTo("buypizza");
     }
 
-    [Parameter]
-    public string PizzaName { get; set; }
-    private string ToppingName { get; set; }
-    public string HomePageURI { get; set; }
-
-    protected override void OnInitialized()
-    {
-        HomePageURI = NavigationManager.BaseUri;
-
-        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
-        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("extratopping", out var extraTopping))
-        {
-            ToppingName = System.Convert.ToString(extraTopping);
-        }
-    }
 
     protected override async Task OnInitializedAsync()
     {
-        currentUri = NavigationManager.Uri;
-        baseUri = NavigationManager.BaseUri;
-        absoluteUri = NavigationManager.ToAbsoluteUri("/another-page").ToString();
-        relativePath = NavigationManager.ToBaseRelativePath("https://localhost:7056/another-page");
-
         specials = await HttpClient.GetFromJsonAsync<List<PizzaSpecial>>(NavigationManager.BaseUri + "specials");
     }
 

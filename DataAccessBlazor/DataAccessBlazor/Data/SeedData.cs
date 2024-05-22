@@ -62,7 +62,9 @@ public static class SeedData
                 ImageUrl = "img/pizzas/margherita.jpg",
             },
         };
+
         db.Specials.AddRange(specials);
         db.SaveChanges();
+
     }
 }

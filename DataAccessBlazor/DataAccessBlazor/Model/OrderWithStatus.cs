@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataAccessBlazor
 {
@@ -8,9 +10,12 @@ namespace DataAccessBlazor
         public readonly static TimeSpan PreparationDuration = TimeSpan.FromSeconds(10);
         public readonly static TimeSpan DeliveryDuration = TimeSpan.FromMinutes(1); // Unrealistic, but more interesting to watch
 
-        public Order Order { get; set; }
+        // Set from DB
+        public int Id { get; set; }
+        public Order Order { get; set; } = null!;
 
-        public string StatusText { get; set; }
+        // Set from Order
+        public string StatusText { get; set; } = null!;
 
         public bool IsDelivered => StatusText == "Delivered";
 

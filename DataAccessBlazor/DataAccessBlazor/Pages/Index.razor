@@ -15,7 +15,7 @@
 @*Pruebas de Navigation Manager con lo que devuelven*@
 
 
-<ul>
+@* <ul>
     <p>I want to order a: @PizzaName</p>
 
     <p>I want to add this topping: @ToppingName</p>
@@ -36,10 +36,19 @@
     <NavLink href="/buypizza" Match="NavLinkMatch.All">Pizza Payment Page</NavLink>
     <NavLink href="/orders" Match="NavLinkMatch.All">Orders Page</NavLink>
     <NavLink href="/ukbirthdaypizza" Match="NavLinkMatch.All">UK birthday pizza</NavLink>
-</ul>
+</ul> *@
 @* <a href="@HomePageURI">HomePageLink</a> *@
 
+<div class="top-bar">
+    <a class="logo" href="">
+        <img src="img/logo.svg" />
+    </a>
 
+    <a href="" class="nav-tab active ">
+        <img src="img/pizza-slice.svg" />
+        <div>Get Pizza</div>
+    </a>
+</div>
 
 <div class="main">
 
@@ -104,14 +113,14 @@
     <div class="order-total @(order.Pizzas.Any() ? "" : "hidden")">
         Total:
         <span class="total-price">@order.GetFormattedTotalPrice()</span>
-        <button class="btn btn-warning" disabled="@(order.Pizzas.Count == 0)">
+        <a href="checkout" class="@(OrderState.Order.Pizzas.Count == 0 ? "btn btn-warning disabled" : "btn btn-warning")">
             Order >
-        </button>
+        </a>
     </div>
 </div>
 
 @code {
-   
+
     [Parameter, EditorRequired] public Pizza Pizza { get; set; } = new();
 
     List<PizzaSpecial> specials = new();
@@ -133,7 +142,7 @@
     private string absoluteUri;
     private string relativePath;
 
-    
+
     private void Navigate()
     {
         NavigationManager.NavigateTo("/another-page");

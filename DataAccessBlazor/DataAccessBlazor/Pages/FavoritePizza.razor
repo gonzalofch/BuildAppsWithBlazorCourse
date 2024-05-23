@@ -1,17 +1,21 @@
-﻿@page "/FavoritePizzas/{favorite?}"
+﻿@page "/FavoritePizza/{preferredsize:int}"
 
+@* OTHER TYPES WE CAN USE -----> URI EXAMPLE
+bool	{vegan:bool}	http://www.contoso.com/pizzas/true
+datetime	{birthdate:datetime}	http://www.contoso.com/customers/1995-12-12
+decimal	{maxprice:decimal}	http://www.contoso.com/pizzas/15.00
+double	{weight:double}	http://www.contoso.com/pizzas/1.234
+float	{weight:float}	http://www.contoso.com/pizzas/1.564
+guid	{pizza id:guid}	http://www.contoso.com/pizzas/CD2C1638-1638-72D5-1638-DEADBEEF1638
+long	{totals ales:long}	http://www.contoso.com/pizzas/568192454*@
 <h1>Choose a Pizza</h1>
 
-<p>Your favorite pizza is: @Favorite</p>
+<p>Your favorite pizza size is: @Preferredsize inches.</p>
 
 @code {
     [Parameter]
-    public string Favorite { get; set; }
+    public int Preferredsize { get; set; }
 
-    protected override void OnInitialized()
-    {
-        Favorite ??= "Fiorentina";
-    }
     /*The OnInitialized method runs when users request the page for the first time. 
      * It doesn't run if they request the same page with a different routing parameter. 
      * For example, if you expect users to go from http://www.contoso.com/favoritepizza/hawaiian to http://www.contoso.com/favoritepizza, 

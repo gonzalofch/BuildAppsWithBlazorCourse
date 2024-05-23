@@ -1,10 +1,19 @@
-﻿@page "/FavoritePizzas/{favorite}"
+﻿@page "/FavoritePizzas/{favorite?}"
 
 <h1>Choose a Pizza</h1>
 
 <p>Your favorite pizza is: @Favorite</p>
 
 @code {
-	[Parameter]
-	public string Favorite { get; set; }
+    [Parameter]
+    public string Favorite { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Favorite ??= "Fiorentina";
+    }
+    /*The OnInitialized method runs when users request the page for the first time. 
+     * It doesn't run if they request the same page with a different routing parameter. 
+     * For example, if you expect users to go from http://www.contoso.com/favoritepizza/hawaiian to http://www.contoso.com/favoritepizza, 
+     * set the default value in the OnParametersSet() method instead.*/
 }

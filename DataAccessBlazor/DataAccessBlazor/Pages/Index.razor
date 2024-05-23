@@ -14,46 +14,6 @@
 @*Pruebas de Navigation Manager con lo que devuelven*@
 
 
-@* <ul>
-    <p>I want to order a: @PizzaName</p>
-
-    <p>I want to add this topping: @ToppingName</p>
-    <br />
-    <li>@(currentUri)</li>
-    <li>@(baseUri)</li>
-    <li>@(absoluteUri)</li>
-    <li>@(relativePath)</li>
-    <button class="btn" @onclick="Navigate">
-        To Another Page >
-    </button>
-    <br />
-    <button class="btn" @onclick="NavigateToPaymentPage">
-        To Payment Page >
-    </button>
-
-    <NavLink href=@HomePageURI Match="NavLinkMatch.All">Home Page</NavLink>
-    <NavLink href="/buypizza" Match="NavLinkMatch.All">Pizza Payment Page</NavLink>
-    <NavLink href="/orders" Match="NavLinkMatch.All">Orders Page</NavLink>
-    <NavLink href="/ukbirthdaypizza" Match="NavLinkMatch.All">UK birthday pizza</NavLink>
-</ul> *@
-@* <a href="@HomePageURI">HomePageLink</a> *@
-
-<div class="top-bar">
-    <a class="logo" href="">
-        <img src="img/logo.svg" />
-    </a>
-
-    <NavLink href="" class="nav-tab" Match="NavLinkMatch.All">
-        <img src="img/pizza-slice.svg" />
-        <div>Get Pizza</div>
-    </NavLink>
-
-    <NavLink href="myorders" class="nav-tab">
-        <img src="img/bike.svg" />
-        <div>My Orders</div>
-    </NavLink>
-</div>
-
 <div class="main">
 
     <ul class="pizza-cards">

@@ -5,6 +5,20 @@
 <p>Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button @onclick="DoWork">Run time-consuming operation</button>
+<p>@Message</p>
+
+@code {
+    public string Message { get; set; } = "Sin nada que hacer :(";
+    private async Task DoWork()
+    {
+        Message = "Realizando trabajo...";
+        // Call a method that takes a long time to run and free the current thread
+        await Task.Delay(5000); // Espera de 5 segundos
+        Message = "Trabajo completado";
+        // Omitted for brevity
+    }
+}
 
 @code {
     private int currentCount = 0;
@@ -18,7 +32,7 @@
     {
         if (e.CtrlKey) // Ctrl key pressed as well
         {
-            currentCount += 5;
+            currentCount += 100;
         }
         else
         {

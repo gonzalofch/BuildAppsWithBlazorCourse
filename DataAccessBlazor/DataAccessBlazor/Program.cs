@@ -1,6 +1,6 @@
 using DataAccessBlazor.Data;
-using DataAccessBlazor.Pages;
-using DataAccessBlazor;
+using DataAccessBlazor.Services;
+using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
@@ -8,6 +8,15 @@ builder.Services.AddHttpClient();
 builder.Services.AddSqlite<PizzaStoreContext>("Data Source=pizza.db");
 builder.Services.AddScoped<PizzaSalesState>();
 builder.Services.AddScoped<OrderState>();
+builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
+
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "DataAccessBlazor", Version = "v1" });
+});
 
 var app = builder.Build();
 
@@ -25,6 +34,16 @@ using (var scope = scopeFactory.CreateScope())
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
+}
+
+app.UseSwagger();
+if (builder.Environment.IsDevelopment())
+{
+    app.UseSwaggerUI(options => // UseSwaggerUI is called only in Development.
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.RoutePrefix = string.Empty;
+});
 }
 
 app.UseStaticFiles();

@@ -1,5 +1,9 @@
 ﻿@page "/checkout";
 @using DataAccessBlazor;
+@using System.Text;
+@using System.Text.Json;
+@using Newtonsoft.Json;
+@using DataAccessBlazor.Services;
 
 @inject OrderState OrderState
 @inject HttpClient HttpClient
@@ -41,7 +45,7 @@
         </div>
     </div>
 
-    <button class="checkout-button btn btn-warning" @onclick="SendOrder" disabled=@isSubmitting>
+    <button class="checkout-button btn btn-warning" @onclick="AddOrder" disabled=@isSubmitting>
         Place order
     </button>
 </div>
@@ -51,13 +55,12 @@
 
     bool isSubmitting;
 
-    async Task SendOrder()
+    async Task AddOrder()
     {
         isSubmitting = true;
         var response = await HttpClient.PostAsJsonAsync($"{NavigationManager.BaseUri}orders", OrderState.Order);
-
         var newOrderId = await response.Content.ReadFromJsonAsync<int>();
         OrderState.ResetOrder();
-        NavigationManager.NavigateTo("/");
+        NavigationManager.NavigateTo("/pizzas");
     }
 }

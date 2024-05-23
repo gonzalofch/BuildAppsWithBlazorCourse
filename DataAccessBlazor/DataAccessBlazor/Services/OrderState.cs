@@ -1,4 +1,4 @@
-﻿namespace DataAccessBlazor;
+﻿namespace DataAccessBlazor.Services;
 public class OrderState
 {
     public bool ShowingConfigureDialog { get; private set; }

@@ -1,12 +1,16 @@
-﻿using DataAccessBlazor;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccessBlazor;
-
-[Route("[controller]")]
+namespace DataAccessBlazor.Pages;
+/*
+ [HttpGet]
+    public async Task<ActionResult<List<PizzaSpecial>>> GetSpecials()
+    {
+        return (await _db.Specials.ToListAsync()).OrderByDescending(s => s.BasePrice).ToList();
+    }*/
+[Route("orders")]
 [ApiController]
-public class OrdersController : Controller
+public class OrdersController : ControllerBase
 {
     private readonly PizzaStoreContext _db;
 
@@ -28,12 +32,10 @@ public class OrdersController : Controller
     }
 
     [HttpPost]
-    [Route("AddOrder")]
-    public async Task<ActionResult<int>> AddOrder(Order order)
+    public async Task<ActionResult<int>> AddOrder([FromBody]Order order)
     {
-        var orderId = order.OrderId;
         order.CreatedTime = DateTime.Now;
-
+        order.UserId = "Gonzalo"; //prueba,
         // Enforce existence of Pizza.SpecialId and Topping.ToppingId
         // in the database - prevent the submitter from making up
         // new specials and toppings

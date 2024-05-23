@@ -1,4 +1,7 @@
-﻿@page "/FavoritePizza/{preferredsize:int}"
+﻿@page "/FavoritePizza/{*favorites}"
+
+@page "/FavoritePizza/{favorite}";
+@*CATCH ONE PARAMETER /*@
 
 @* OTHER TYPES WE CAN USE -----> URI EXAMPLE
 bool	{vegan:bool}	http://www.contoso.com/pizzas/true
@@ -8,16 +11,29 @@ double	{weight:double}	http://www.contoso.com/pizzas/1.234
 float	{weight:float}	http://www.contoso.com/pizzas/1.564
 guid	{pizza id:guid}	http://www.contoso.com/pizzas/CD2C1638-1638-72D5-1638-DEADBEEF1638
 long	{totals ales:long}	http://www.contoso.com/pizzas/568192454*@
+
 <h1>Choose a Pizza</h1>
 
-<p>Your favorite pizza size is: @Preferredsize inches.</p>
+@if (Favorite is not null)
+{
+    <p>Your favorite pizza is: @Favorite</p>
+}
+else
+{
+    <p>Your favorite pizzas are: @Favorites</p>
+}
 
 @code {
     [Parameter]
-    public int Preferredsize { get; set; }
+    public string Favorite { get; set; }
+    [Parameter]
+    public string Favorites { get; set; }
 
-    /*The OnInitialized method runs when users request the page for the first time. 
-     * It doesn't run if they request the same page with a different routing parameter. 
-     * For example, if you expect users to go from http://www.contoso.com/favoritepizza/hawaiian to http://www.contoso.com/favoritepizza, 
+    // [Parameter]
+    // public int Preferredsize { get; set; }
+
+    /*The OnInitialized method runs when users request the page for the first time.
+     * It doesn't run if they request the same page with a different routing parameter.
+     * For example, if you expect users to go from http://www.contoso.com/favoritepizza/hawaiian to http://www.contoso.com/favoritepizza,
      * set the default value in the OnParametersSet() method instead.*/
 }

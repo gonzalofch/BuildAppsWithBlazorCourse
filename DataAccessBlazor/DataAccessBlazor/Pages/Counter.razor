@@ -3,11 +3,29 @@
 <h1>Counter</h1>
 
 <p>Current count: @currentCount</p>
-
+<br />
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
 <button @onclick="DoWork">Run time-consuming operation</button>
 <p>@Message</p>
+<br />
+<button class="btn btn-primary" @onclick="ChangeFocus">Click me to change focus</button>
+<input @ref=InputField @onfocus="HandleFocus" value="@data" />
 
+@code {
+    private ElementReference InputField;
+    private string data;
+
+    private async Task ChangeFocus()
+    {
+        await InputField.FocusAsync();
+    }
+
+    private async Task HandleFocus()
+    {
+        data = "Received focus";
+    }
+}
 @code {
     public string Message { get; set; } = "Sin nada que hacer :(";
     private async Task DoWork()

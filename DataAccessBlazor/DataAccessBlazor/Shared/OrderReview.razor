@@ -1,0 +1,28 @@
+﻿@using DataAccessBlazor;
+@using DataAccessBlazor.Services;
+
+@inject OrderState OrderState
+@inject HttpClient HttpClient
+@inject NavigationManager NavigationManager
+
+@foreach (var pizza in Order.Pizzas)
+{
+    <p>
+        <strong>
+            @(pizza.Size)"
+            @pizza.Special.Name
+            (£@pizza.GetFormattedTotalPrice())
+        </strong>
+    </p>
+}
+
+<p>
+    <strong>
+        Total price:
+        £@Order.GetFormattedTotalPrice()
+    </strong>
+</p>
+
+@code {
+    [Parameter] public Order Order { get; set; }
+}

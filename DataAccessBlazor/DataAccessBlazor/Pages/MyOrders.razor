@@ -47,7 +47,7 @@
                     @if (@item.StatusText != "Delivered")
                     {
                         <div class="col flex-grow-0">
-                            <a href="myorders/" class="btn btn-success">
+                            <a href="myorders/@item.Order.OrderId" class="btn btn-success"> @*Ruta para que vaya a myorders/idDeLaOrden*@
                                 Track &gt;
                             </a>
                         </div>

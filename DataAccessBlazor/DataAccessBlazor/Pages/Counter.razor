@@ -1,18 +1,70 @@
 ﻿@page "/counter"
+@inject IJSRuntime JS
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+@* <p id="currentCount">Current count: @currentCount</p> *@
 <br />
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="() => currentCount++">Click me</button>
 
 <button @onclick="DoWork">Run time-consuming operation</button>
 <p>@Message</p>
 <br />
 <button class="btn btn-primary" @onclick="ChangeFocus">Click me to change focus</button>
 <input @ref=InputField @onfocus="HandleFocus" value="@data" />
+<br />
+<button class="btn btn-primary" @onclick='mouseEvent => HandleClick(mouseEvent, "Hello")'>Click me</button>
 
+
+@* <input value=@dato @onkeypress="ProcessKeyPress" /> *@
+
+@* <input value=@data @onkeypress="ProcessKeyPress" @onkeypress:preventDefault /> *@
+
+<div @onclick="HandleDivClick">
+    <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+    <input value=@data @onkeypress="ProcessKeyPress" @onkeypress:preventDefault />
+</div>
+<div @onclick="HandleDivClick" style="border:2px solid black;">
+    <button class="btn btn-primary" @onclick="IncrementCount" @onclick:stopPropagation>Click me</button>
+    <input value=@data @onkeypress="ProcessKeyPress" @onkeypress:preventDefault />
+    <!-- Omitted for brevity -->
+</div>
 @code {
+    private async Task HandleDivClick()
+    {
+        await JS.InvokeVoidAsync("alert", "Div click");
+    }
+
+    private string dato;
+
+    private async Task ProcessKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "@")
+        {
+            await JS.InvokeVoidAsync("alert", "You pressed @");
+        }
+        else
+        {
+            dato += e.Key.ToUpper();
+        }
+    }
+}
+@code {
+    private int currentCount = 0;
+
+    private async Task HandleClick(MouseEventArgs e, string msg)
+    {
+        if (e.CtrlKey) // Ctrl key pressed as well
+        {
+            await JS.InvokeVoidAsync("alert", msg);
+            currentCount += 5;
+        }
+        else
+        {
+            currentCount++;
+        }
+    }
+
     private ElementReference InputField;
     private string data;
 
@@ -25,8 +77,7 @@
     {
         data = "Received focus";
     }
-}
-@code {
+
     public string Message { get; set; } = "Sin nada que hacer :(";
     private async Task DoWork()
     {
@@ -34,12 +85,9 @@
         // Call a method that takes a long time to run and free the current thread
         await Task.Delay(5000); // Espera de 5 segundos
         Message = "Trabajo completado";
+        await JS.InvokeVoidAsync("console.log", Message);
         // Omitted for brevity
     }
-}
-
-@code {
-    private int currentCount = 0;
 
     // private void IncrementCount()
     // {

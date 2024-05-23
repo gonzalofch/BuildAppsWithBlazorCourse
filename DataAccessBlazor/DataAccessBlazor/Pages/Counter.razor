@@ -29,6 +29,19 @@
     <input value=@data @onkeypress="ProcessKeyPress" @onkeypress:preventDefault />
     <!-- Omitted for brevity -->
 </div>
+
+
+<hr />
+
+
+<button @onclick="OnClickCallback">
+    Click me!
+</button>
+
+@code {
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClickCallback { get; set; }
+}
 @code {
     private async Task HandleDivClick()
     {

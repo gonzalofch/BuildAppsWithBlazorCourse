@@ -1,0 +1,13 @@
+﻿@page "/texttransformer";
+@using DataAccessBlazor.Pages.Data;
+
+<h1>Text Transformer - Parent</h1>
+
+<TextDisplay OnKeypressCallback="@(TransformText)" />
+
+@code {
+    private void TransformText(KeyTransformation k)
+    {
+        k.TransformedKey = k.Key.ToUpper();
+    }
+}

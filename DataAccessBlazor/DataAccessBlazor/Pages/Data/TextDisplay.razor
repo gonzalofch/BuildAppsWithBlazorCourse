@@ -1,0 +1,19 @@
+﻿@* TextDisplay component *@
+@using DataAccessBlazor.Pages.Data;
+
+<p>Enter text:</p>
+<input @onkeypress="HandleKeyPress" value="@datasa" />
+
+@code {
+    [Parameter]
+    public EventCallback<KeyTransformation> OnKeyPressCallback { get; set; }
+
+    private string datasa;
+
+    private async Task HandleKeyPress(KeyboardEventArgs e)
+    {
+        KeyTransformation t = new KeyTransformation() { Key = e.Key };
+        await OnKeyPressCallback.InvokeAsync(t);
+        datasa += t.TransformedKey;
+    }
+}

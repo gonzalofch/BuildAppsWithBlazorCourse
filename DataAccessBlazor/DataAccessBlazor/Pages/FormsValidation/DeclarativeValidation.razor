@@ -4,6 +4,7 @@
 
 <EditForm Model="@currentForecast" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
+    @*ACTIVA EL VALIDADOR DEL MODELO, CON LOS MENSAJES DE VALIDACION QUE TENGAN DEFINIDOS*@
     <div class="mb-3">
         <label for="date" class="form-label">Date</label>
         <InputDate id="date" class="form-control" @bind-Value="currentForecast.Date" />
@@ -25,9 +26,19 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
     <ValidationSummary />
+    @*ADEMAS DE LOS TIPOS DE DATAANNOTATIONS DE AQUI, HAY MAS COMO:
 
+    [ValidationNever]: Use this annotation when you want to ensure that the field is never included in validation.
+    [CreditCard]: Use this annotation when you want to record a valid credit card number from the user.
+    [Compare]: Use this annotation when you want to ensure that two properties in the model match.
+    [Phone]: Use this annotation when you want to record a valid telephone number from the user.
+    [RegularExpression]: Use this annotation to check the format of a value by comparing it to a regular expression.
+    [StringLength]: Use this annotation to check that the length of a string value doesn't exceed a maximum length.
+    [Url]: Use this annotation when you want to record a valid URL from the user.
+
+    *@
 </EditForm>
-<ValidationSummary/>
+
 <div class="mt-3">
     <h4>Current Weather Forecast</h4>
     <p><strong>Date:</strong> @currentForecast.Date.ToShortDateString()</p>

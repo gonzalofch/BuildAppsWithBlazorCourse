@@ -1,0 +1,54 @@
+﻿@page "/declarative-validation"
+
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="@currentForecast" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <InputDate id="date" class="form-control" @bind-Value="currentForecast.Date" />
+        <ValidationMessage For="@(() => currentForecast.Date)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="temperatureC" class="form-label">Temperature (C)</label>
+        <InputNumber id="temperatureC" class="form-control" @bind-Value="currentForecast.TemperatureC"
+                     min="-100" max="100" step="5" />
+        <ValidationMessage For="@(() => currentForecast.TemperatureC)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="summary" class="form-label">Summary</label>
+        <InputText id="summary" class="form-control" @bind-Value="currentForecast.Summary" />
+        <ValidationMessage For="@(() => currentForecast.Summary)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <ValidationSummary />
+
+</EditForm>
+<ValidationSummary/>
+<div class="mt-3">
+    <h4>Current Weather Forecast</h4>
+    <p><strong>Date:</strong> @currentForecast.Date.ToShortDateString()</p>
+    <p><strong>Temperature (C):</strong> @currentForecast.TemperatureC</p>
+    <p><strong>Temperature (F):</strong> @currentForecast.TemperatureF</p>
+    <p><strong>Summary:</strong> @currentForecast.Summary</p>
+</div>
+
+@code {
+    private WeatherForecastValidation currentForecast = new WeatherForecastValidation
+        {
+            Date = DateTime.Now,
+            TemperatureC = 25,
+            Summary = "Sunny"
+        };
+
+    private void HandleValidSubmit()
+    {
+        Console.WriteLine($"Date: {currentForecast.Date}");
+        Console.WriteLine($"Temperature (C): {currentForecast.TemperatureC}");
+        Console.WriteLine($"Temperature (F): {currentForecast.TemperatureF}");
+        Console.WriteLine($"Summary: {currentForecast.Summary}");
+    }
+}

@@ -2,6 +2,20 @@
 @using Pages.WeatherForecastExample;
 @inject WeatherForecastService ForecastService;
 <h3>Forms</h3>
+@*TYPES OF VALIDATION
+    Client Side: Declarative (antes de ser transmitida al servidor, al controlar estos casos permite mostrar mensajes de error de validacion, etc)
+        *Aqui se pueden validar datos con eventos de js (onchange,input, pero deben controlarse bien y deben ser usados cuando sea necesario. si le muestro un mensaje al usuario a cada rato, se fastidia)
+    Server Side: Programmatic  evitar que los datos registrados en el formulario lleguen a la base de datos si no cumplen nuestras validaciones)
+
+    Los EditForms tienen 3 eventos cuando son registrados (submitted):
+
+        *OnValidSubmit: This event is triggered if the input fields successfully pass the validation rules defined by their validation attributes.
+        *OnInvalidSubmit: This event is triggered if any of the input fields on the form fail the validation defined by their validation attributes.
+        *OnSubmit: This event occurs when the EditForm is submitted regardless of whether all of the input fields are valid or not.
+
+
+
+*@
 @*atributo step de InputNumber hacae que el input avance de 5 en 5,(bloquea los numros que no sean multipos de 5) *@
 <EditForm Model=@currentForecast>
     <InputNumber @bind-Value=currentForecast.TemperatureC width="5" min="-100" step="5"></InputNumber>
@@ -42,7 +56,47 @@
     </label>
 </EditForm>
 
+<EditForm Model="@shirt" OnSubmit="ValidateData">
+    <!-- Omitted for brevity -->
+    <input type="submit" class="btn btn-primary" value="Save" />
+    <p></p>
+    <div>@Message</div>
+</EditForm>
+
 @code {
+    private string Message = String.Empty;
+
+    private async Task ValidateData(EditContext editContext)
+    {
+        if (editContext.Model is not Shirt shirt)
+        {
+            Message = "T-Shirt object is invalid";
+            return;
+        }
+
+        if (shirt is { Color: ShirtColor.Red, Size: ShirtSize.ExtraLarge })
+        {
+            Message = "Red T-Shirts not available in Extra Large size";
+            return;
+        }
+
+        if (shirt is { Color: ShirtColor.Blue, Size: <= ShirtSize.Medium }) 
+        {
+            Message = "Blue T-Shirts not available in Small or Medium sizes";
+            return;
+        }
+
+        if (shirt is { Color: ShirtColor.White, Price: > 50 })
+        {
+            Message = "White T-Shirts must be priced at 50 or lower";
+            return;
+        }
+
+        // Data is valid
+        // Save the data
+        Message = "Changes saved";
+    }
+
     private Shirt shirt = new Shirt
         {
             Size = ShirtSize.Large,

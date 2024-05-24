@@ -1,4 +1,5 @@
 using DataAccessBlazor.Data;
+using DataAccessBlazor.Pages.WeatherForecastExample;
 using DataAccessBlazor.Services;
 using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddSqlite<PizzaStoreContext>("Data Source=pizza.db");
 builder.Services.AddScoped<PizzaSalesState>();
 builder.Services.AddScoped<OrderState>();
+builder.Services.AddScoped<WeatherForecastService>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 

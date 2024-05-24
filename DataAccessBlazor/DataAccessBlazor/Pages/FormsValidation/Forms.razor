@@ -1,0 +1,73 @@
+﻿@page "/forms";
+@using Pages.WeatherForecastExample;
+@inject WeatherForecastService ForecastService;
+<h3>Forms</h3>
+@*atributo step de InputNumber hacae que el input avance de 5 en 5,(bloquea los numros que no sean multipos de 5) *@
+<EditForm Model=@currentForecast>
+    <InputNumber @bind-Value=currentForecast.TemperatureC width="5" min="-100" step="5"></InputNumber>
+</EditForm>
+
+<EditForm Model="@shirt">
+    <label>
+        <h3>Size</h3>
+        <InputRadioGroup Name="size" @bind-Value=shirt.Size>
+            @foreach (var shirtSize in Enum.GetValues(typeof(ShirtSize)))
+            {
+                <label>
+                    @shirtSize:
+                    <InputRadio Name="size" Value="@shirtSize"></InputRadio>
+                </label>
+                <br />
+            }
+        </InputRadioGroup>
+    </label>
+    <p></p>
+    <label>
+        <h3>Color</h3>
+        <InputRadioGroup Name="color" @bind-Value=shirt.Color>
+            @foreach (var shirtColor in Enum.GetValues(typeof(ShirtColor)))
+            {
+                <label>
+                    @shirtColor:
+                    <InputRadio Name="color" Value="@shirtColor"></InputRadio>
+                </label>
+                <br />
+            }
+        </InputRadioGroup>
+    </label>
+    <p></p>
+    <label>
+        <h3>Price</h3>
+        <InputNumber @bind-Value=shirt.Price min="0" max="100" step="0.01"></InputNumber>
+    </label>
+</EditForm>
+
+@code {
+    private Shirt shirt = new Shirt
+        {
+            Size = ShirtSize.Large,
+            Color = ShirtColor.Blue,
+            Price = 9.99M
+        };
+
+    private WeatherForecast[] forecasts;
+    private WeatherForecast currentForecast;
+    private int index = 0;
+    private int upperIndex = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        currentForecast = forecasts[index];
+        upperIndex = forecasts.Count() - 1;
+    }
+
+    private async Task ChangeForecast(ChangeEventArgs e)
+    {
+        index = int.Parse(e.Value as string);
+        if (index <= upperIndex && index >= 0)
+        {
+            currentForecast = forecasts[index];
+        }
+    }
+}

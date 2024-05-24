@@ -1,0 +1,59 @@
+﻿@page "/fetchdata"
+
+@using DataAccessBlazor.Pages.WeatherForecastExample;
+@inject WeatherForecastService ForecastService;
+
+<h1>Weather forecast</h1>
+@* OTROS TIPOS DE IMPUTS Y SUS VALORES EN FORMATO DE HTML
+
+InputCheckbox	<input type="checkbox">
+InputDate<TValue>	<input type="date">
+InputFile	<input type="file">
+InputNumber<TValue>	<input type="number">
+InputRadio<TValue>	<input type="radio">
+InputRadioGroup<TValue>	Group of child radio buttons
+InputSelect<TValue>	<select>
+InputText	<input>
+InputTextArea	<textarea>*@
+<input type="number" width="2" min="0" max="@upperIndex" @onchange="ChangeForecast" value="@index" />
+
+<EditForm Model=@currentForecast>
+    <InputDate @bind-Value=currentForecast.Date></InputDate>
+    <InputNumber @bind-Value=currentForecast.TemperatureC></InputNumber>
+    <InputText @bind-Value=currentForecast.Summary></InputText>
+</EditForm>
+
+<div class="mt-3">
+    <h4>Forecast que se va a enviar</h4>
+    <p><strong>Date:</strong> @currentForecast.Date.ToShortDateString()</p>
+    <p><strong>Temperature (C):</strong> @currentForecast.TemperatureC</p>
+    <p><strong>Temperature (F):</strong> @currentForecast.TemperatureF</p>
+    <p><strong>Summary:</strong> @currentForecast.Summary</p>
+</div>
+<hr />
+
+<EditForm Model=@currentForecast>
+    <InputNumber @bind-Value=currentForecast.TemperatureC width="5" min="-100" step="5"></InputNumber>
+</EditForm>
+@code {
+    private WeatherForecast[] forecasts;
+    private WeatherForecast currentForecast;
+    private int index = 0;
+    private int upperIndex = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        currentForecast = forecasts[index];
+        upperIndex = forecasts.Count() - 1;
+    }
+
+    private async Task ChangeForecast(ChangeEventArgs e)
+    {
+        index = int.Parse(e.Value as string);
+        if (index <= upperIndex && index >= 0)
+        {
+            currentForecast = forecasts[index];
+        }
+    }
+}

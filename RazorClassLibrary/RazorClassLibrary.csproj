@@ -1,18 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
-
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
-
+	
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
-
+	
+  <PropertyGroup>
+    <PackageId>My.RazorClassLibrary</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Razor1234567</Authors>
+    <Company>CompanyRazor1234567</Company>
+    <Description>This is a Razor component library with a cool modal window component.</Description>
+  </PropertyGroup>
+	
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.5" />
   </ItemGroup>
-
 </Project>

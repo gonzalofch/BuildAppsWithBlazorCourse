@@ -1,11 +1,4 @@
-﻿/*.my-component {
-    border: 2px dashed red;
-    padding: 1em;
-    margin: 1em 0;
-    background-image: url('background.png');*/
-    /*no se requieren rutas a imagenes que esten dentro de wwwroot*/
-/*}*/
-.dialog-container {
+﻿.dialog-container {
     position: absolute;
     top: 0;
     bottom: 0;

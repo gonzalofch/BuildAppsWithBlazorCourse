@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
-    <ProjectReference Include="..\RazorLibrary\RazorLibrary.csproj" />
+    <ProjectReference Include="..\RazorClassLibrary\RazorClassLibrary.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
